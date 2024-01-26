@@ -64,7 +64,7 @@ def pivot_analysis(vertices, facets, pivot):
                 continue
             edges.add(edge)
 
-    angle_to_edges = {}
+    offplane_angle_to_edges = {}
     for edge in edges:
         assert edge[0] == pivot
         pa = vertices[edge[0]]
@@ -74,11 +74,30 @@ def pivot_analysis(vertices, facets, pivot):
         angle = np.arccos(normal_dot_delta)
         angle -= np.pi / 2
         angle = limit_resolution(angle)
-        if angle not in angle_to_edges:
-            angle_to_edges[angle] = set()
-        angle_to_edges[angle].add(edge)
+        if angle not in offplane_angle_to_edges:
+            offplane_angle_to_edges[angle] = set()
+        offplane_angle_to_edges[angle].add(edge)
 
-    return angle_to_edges
+    inplane_angle_to_facets = {}
+    for facet in facets:
+        while facet[0] != pivot:
+            facet = [facet[2], facet[0], facet[1]]
+        facet = tuple(facet)
+        assert facet[0] == pivot
+        pa = vertices[facet[0]]
+        pb = vertices[facet[1]]
+        pc = vertices[facet[2]]
+        aa = normalize(pb - pa)
+        bb = normalize(pc - pa)
+        aa_dot_nn = aa.T @ bb
+        assert aa_dot_nn > 0
+        angle = np.arccos(aa_dot_nn)
+        angle = limit_resolution(angle)
+        if angle not in inplane_angle_to_facets:
+            inplane_angle_to_facets[angle] = set()
+        inplane_angle_to_facets[angle].add(facet)
+
+    return offplane_angle_to_edges, inplane_angle_to_facets
 
 
 def analyse_pentagon():
@@ -87,13 +106,21 @@ def analyse_pentagon():
     print(f"{vertices.shape[0]} vertices")
     print(f"{facets.shape[0]} facets")
 
-    angle_to_edges = pivot_analysis(vertices, facets, pivot=0)
+    offplane_angles, inplane_angles = pivot_analysis(vertices, facets, pivot=0)
 
-    print(f"{len(angle_to_edges)} magic angles")
-    for magic_angle, magic_edges in angle_to_edges.items():
-        print(f"** {magic_angle * 180 / np.pi:.2f}° x{len(magic_edges)}")
+    print(f"{len(offplane_angles)} off-plane angles")
+    for angle, edges in offplane_angles.items():
+        print(f"** {angle * 180 / np.pi:.2f}° x{len(edges)}")
 
-    assert len(angle_to_edges) == 1
+    print(f"{len(inplane_angles)} in-plane angles")
+    total_inplane_angle = 0
+    for angle, facets in inplane_angles.items():
+        print(f"** {angle * 180 / np.pi:.2f}° x{len(facets)}")
+        total_inplane_angle += angle * len(facets)
+    print(f"total_around_pivot {total_inplane_angle * 180 / np.pi:.2f}°")
+
+    assert len(offplane_angles) == 1
+    assert len(inplane_angles) == 1
 
 
 def analyse_hexagon():
@@ -102,13 +129,21 @@ def analyse_hexagon():
     print(f"{vertices.shape[0]} vertices")
     print(f"{facets.shape[0]} facets")
 
-    angle_to_edges = pivot_analysis(vertices, facets, pivot=5)
+    offplane_angles, inplane_angles = pivot_analysis(vertices, facets, pivot=5)
 
-    print(f"{len(angle_to_edges)} magic angles")
-    for magic_angle, magic_edges in angle_to_edges.items():
-        print(f"** {magic_angle * 180 / np.pi:.2f}° x{len(magic_edges)}")
+    print(f"{len(offplane_angles)} off-plane angles")
+    for angle, edges in offplane_angles.items():
+        print(f"** {angle * 180 / np.pi:.2f}° x{len(edges)}")
 
-    assert len(angle_to_edges) == 2
+    print(f"{len(inplane_angles)} in-plane angles")
+    total_inplane_angle = 0
+    for angle, facets in inplane_angles.items():
+        print(f"** {angle * 180 / np.pi:.2f}° x{len(facets)}")
+        total_inplane_angle += angle * len(facets)
+    print(f"total_around_pivot {total_inplane_angle * 180 / np.pi:.2f}°")
+
+    assert len(offplane_angles) == 2
+    assert len(inplane_angles) == 2
 
 
 if __name__ == "__main__":
