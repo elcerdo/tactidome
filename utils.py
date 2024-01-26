@@ -9,6 +9,16 @@ def enum_edges(ff):
     yield cc, aa
 
 
+def normalize(vv):
+    norm = np.linalg.norm(vv)
+    assert norm != 0
+    return vv / norm
+
+
+def limit_resolution(xx, res=1e-4):
+    return int(xx / res) * res
+
+
 def load_obj(path):
     lines = None
     with open(path) as handle:
