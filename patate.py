@@ -57,6 +57,10 @@ def pivot_analysis(vertices, facets, pivot):
     normal = normalize(vertices[pivot] - barycenter)
     print(f"normal {normal}")
 
+    normal_proj = normal.reshape(3, 1)
+    normal_proj = np.eye(3) - normal_proj @ normal_proj.T
+    print(f"normal_proj\n{normal_proj}")
+
     edges = set()
     for facet in facets:
         for edge in enum_edges(facet):
@@ -84,15 +88,14 @@ def pivot_analysis(vertices, facets, pivot):
             facet = [facet[2], facet[0], facet[1]]
         facet = tuple(facet)
         assert facet[0] == pivot
-        pa = vertices[facet[0]]
-        pb = vertices[facet[1]]
-        pc = vertices[facet[2]]
+        pa = normal_proj @ vertices[facet[0]]
+        pb = normal_proj @ vertices[facet[1]]
+        pc = normal_proj @ vertices[facet[2]]
         aa = normalize(pb - pa)
         bb = normalize(pc - pa)
         aa_dot_nn = aa.T @ bb
         assert aa_dot_nn > 0
         angle = np.arccos(aa_dot_nn)
-        angle = limit_resolution(angle)
         if angle not in inplane_angle_to_facets:
             inplane_angle_to_facets[angle] = set()
         inplane_angle_to_facets[angle].add(facet)
@@ -119,8 +122,11 @@ def analyse_pentagon():
         total_inplane_angle += angle * len(facets)
     print(f"total_around_pivot {total_inplane_angle * 180 / np.pi:.2f}°")
 
-    assert len(offplane_angles) == 1
-    assert len(inplane_angles) == 1
+    for angle in offplane_angles:
+        assert np.abs(angle - 15.85 * np.pi / 180) < 1e-2
+    for angle in inplane_angles:
+        assert np.abs(angle - 2 * np.pi / 5) < 1e-2
+    assert np.abs(total_inplane_angle - 2 * np.pi) < 1e-2
 
 
 def analyse_hexagon():
@@ -142,8 +148,11 @@ def analyse_hexagon():
         total_inplane_angle += angle * len(facets)
     print(f"total_around_pivot {total_inplane_angle * 180 / np.pi:.2f}°")
 
-    assert len(offplane_angles) == 2
-    assert len(inplane_angles) == 2
+    for angle in offplane_angles:
+        assert (np.abs(angle - np.array([15.85, 18]) * np.pi / 180) < 1e-2).any()
+    for angle in inplane_angles:
+        assert (np.abs(angle - np.array([63.44, 58.58]) * np.pi / 180) < 1e-2).any()
+    assert np.abs(total_inplane_angle - 2 * np.pi) < 1e-2
 
 
 if __name__ == "__main__":
