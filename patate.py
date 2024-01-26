@@ -7,7 +7,7 @@ from utils import load_obj, enum_edges, normalize, limit_resolution
 
 
 def generate_part_listing():
-    print("***** generate_part_listing *****")
+    print("##### generate_part_listing #####")
     vertices, facets = load_obj("dome_small_door.obj")
 
     degrees = np.zeros(vertices.shape[0], dtype=int)
@@ -46,13 +46,7 @@ def generate_part_listing():
         print(f"** {len(ees)} with length {ll:0.4f}m")
 
 
-def analyse_pentagon():
-    print("***** analyse_pentagon *****")
-    vertices, facets = load_obj("dome_pentagon.obj")
-    print(f"{vertices.shape[0]} vertices")
-    print(f"{facets.shape[0]} facets")
-
-    pivot = 0
+def pivot_analysis(vertices, facets, pivot):
     for facet in facets:
         assert pivot in facet
 
@@ -65,30 +59,60 @@ def analyse_pentagon():
 
     edges = set()
     for facet in facets:
-        for aa, bb in enum_edges(facet):
-            edge = (aa, bb) if aa < bb else (bb, aa)
-            if pivot != aa:
+        for edge in enum_edges(facet):
+            if pivot != edge[0]:
                 continue
             edges.add(edge)
 
-    angles = set()
-    for aa, bb in edges:
-        pa = vertices[aa]
-        pb = vertices[bb]
+    angle_to_edges = {}
+    for edge in edges:
+        assert edge[0] == pivot
+        pa = vertices[edge[0]]
+        pb = vertices[edge[1]]
         delta = normalize(pb - pa)
         normal_dot_delta = normal.T @ delta
         angle = np.arccos(normal_dot_delta)
         angle -= np.pi / 2
         angle = limit_resolution(angle)
-        angles.add(angle)
+        if angle not in angle_to_edges:
+            angle_to_edges[angle] = set()
+        angle_to_edges[angle].add(edge)
 
-    assert len(angles) == 1
-    magic_angle = angles.pop()
-    assert not angles
-    print(f"magic_pentagon_angle {magic_angle * 180 / np.pi:.2f}°")
+    return angle_to_edges
+
+
+def analyse_pentagon():
+    print("##### analyse_pentagon #####")
+    vertices, facets = load_obj("dome_pentagon.obj")
+    print(f"{vertices.shape[0]} vertices")
+    print(f"{facets.shape[0]} facets")
+
+    angle_to_edges = pivot_analysis(vertices, facets, pivot=0)
+
+    print(f"{len(angle_to_edges)} magic angles")
+    for magic_angle, magic_edges in angle_to_edges.items():
+        print(f"** {magic_angle * 180 / np.pi:.2f}° x{len(magic_edges)}")
+
+    assert len(angle_to_edges) == 1
+
+
+def analyse_hexagon():
+    print("##### analyse_hexagon #####")
+    vertices, facets = load_obj("dome_hexagon.obj")
+    print(f"{vertices.shape[0]} vertices")
+    print(f"{facets.shape[0]} facets")
+
+    angle_to_edges = pivot_analysis(vertices, facets, pivot=5)
+
+    print(f"{len(angle_to_edges)} magic angles")
+    for magic_angle, magic_edges in angle_to_edges.items():
+        print(f"** {magic_angle * 180 / np.pi:.2f}° x{len(magic_edges)}")
+
+    assert len(angle_to_edges) == 2
 
 
 if __name__ == "__main__":
     np.set_printoptions(precision=4, suppress=True)
     generate_part_listing()
     analyse_pentagon()
+    analyse_hexagon()
