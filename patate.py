@@ -7,7 +7,7 @@ from utils import load_obj, enum_edges, normalize, limit_resolution
 
 
 def generate_part_listing(path):
-    print("##### generate_part_listing for #####")
+    print("\n##### generate_part_listing #####")
     print(f'path "{path}"')
     vertices, facets = load_obj(path)
 
@@ -105,7 +105,7 @@ def pivot_analysis(vertices, facets, pivot):
 
 
 def analyse_pentagon():
-    print("##### analyse_pentagon #####")
+    print("\n##### analyse_pentagon #####")
     vertices, facets = load_obj("dome_pentagon.obj")
     print(f"{vertices.shape[0]} vertices")
     print(f"{facets.shape[0]} facets")
@@ -131,7 +131,7 @@ def analyse_pentagon():
 
 
 def analyse_hexagon():
-    print("##### analyse_hexagon #####")
+    print("\n##### analyse_hexagon #####")
     vertices, facets = load_obj("dome_hexagon.obj")
     print(f"{vertices.shape[0]} vertices")
     print(f"{facets.shape[0]} facets")
@@ -162,3 +162,4 @@ if __name__ == "__main__":
     analyse_hexagon()
     generate_part_listing("dome_small_door.obj")
     generate_part_listing("dome_closed.obj")
+    generate_part_listing("dome_full.obj")

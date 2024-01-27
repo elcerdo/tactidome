@@ -27,7 +27,8 @@ def load_obj(path):
 
     re_comment = re.compile("^(#|o|vt|s)")
     re_vertex = re.compile("^v\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)")
-    re_facet = re.compile("^f\s+(\d+/\d+)\s+(\d+/\d+)\s+(\d+/\d+)")
+    re_facet_full = re.compile("^f\s+(\d+/\d+)\s+(\d+/\d+)\s+(\d+/\d+)")
+    re_facet_simple = re.compile("^f\s+(\d+)\s+(\d+)\s+(\d+)")
 
     vertices = []
     facets = []
@@ -47,10 +48,18 @@ def load_obj(path):
             vertices.append(vertex)
             continue
 
-        # facets
-        match = re_facet.match(line)
+        # full facets
+        match = re_facet_full.match(line)
         if match is not None:
             facet = [int(xx.split("/")[0]) for xx in match.groups()]
+            # print(f"ff {facet}")
+            facets.append(facet)
+            continue
+
+        # simple facets
+        match = re_facet_simple.match(line)
+        if match is not None:
+            facet = [int(xx) for xx in match.groups()]
             # print(f"ff {facet}")
             facets.append(facet)
             continue
