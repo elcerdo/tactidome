@@ -6,9 +6,10 @@ import numpy.linalg as lin
 from utils import load_obj, enum_edges, normalize, limit_resolution
 
 
-def generate_part_listing():
-    print("##### generate_part_listing #####")
-    vertices, facets = load_obj("dome_small_door.obj")
+def generate_part_listing(path):
+    print("##### generate_part_listing for #####")
+    print(f'path "{path}"')
+    vertices, facets = load_obj(path)
 
     degrees = np.zeros(vertices.shape[0], dtype=int)
     for aa, bb, cc in facets:
@@ -157,6 +158,7 @@ def analyse_hexagon():
 
 if __name__ == "__main__":
     np.set_printoptions(precision=4, suppress=True)
-    generate_part_listing()
     analyse_pentagon()
     analyse_hexagon()
+    generate_part_listing("dome_small_door.obj")
+    generate_part_listing("dome_closed.obj")
