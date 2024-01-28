@@ -5,11 +5,11 @@ This repo holds everything you need in order to laser cut a icosphere sphere.
 It is pretty easy & fun to create nice bowls, lamp shades & other designs.
 If you have a large enough laser cutter, these could also be used as tents.
 
-Use this [SVG](dome_assembly.optimized.svg) to get started!!!
+Use this [SVG](dome.optimized.svg) to get started!!!
 
 # Assembly
 
-![dome_assembly](dome_assembly.png)
+![dome_assembly](screenshots/dome_color_parts.png)
 
 There are four different parts:
 * An almost hexagonal joint (H)
@@ -17,7 +17,7 @@ There are four different parts:
 * A long link (A)
 * A short link (B)
 
-<img src="screenshots/dome_assembly.png" with="100">
+<img src="screenshots/dome_color_parts.png" with="100">
 
 The star of the show being H.
 It lacks the six-way symmetry of the hexagon, but still has vertical symmetry (as denoted by the vertical mark).
