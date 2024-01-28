@@ -19,6 +19,10 @@ It lacks the six-way symmetry of the hexagon, but still has vertical symmetry (a
 Joint and link should be assembled by matching colors on each part.
 By sure to connect B parts into H part along the symmetry mark.
 
+There is only two kinds of triangle:
+* HHH/AAA (equilateral)
+* HPP/ABB (isocele)
+
 # Part listings
 
 By combining many of these basic parts, one can create more complex structures, like a sphere, a dome, a lamp shade, ...
