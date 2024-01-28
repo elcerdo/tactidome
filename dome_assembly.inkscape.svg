@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1883"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   sodipodi:docname="dome_assembly.svg"
+   sodipodi:docname="dome_assembly.inkscape.svg"
    inkscape:export-filename="dome_assembly.png"
    inkscape:export-xdpi="118.22546"
    inkscape:export-ydpi="118.22546"
@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.4948513"
-     inkscape:cx="213.06467"
-     inkscape:cy="91.647912"
+     inkscape:zoom="2.9897026"
+     inkscape:cx="185.13547"
+     inkscape:cy="119.74435"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -5097,5 +5097,10 @@
            x="131.68073"
            y="75.96727">B</tspan></text>
     </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.175;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:1.4, 0.35, 0.175, 0.35;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 85.809797,29.083472 -3e-6,35.408903"
+       id="path1579"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
