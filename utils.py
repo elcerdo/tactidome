@@ -1,5 +1,7 @@
 import re
+from pathlib import Path
 import numpy as np
+
 
 
 def enum_edges(ff):
@@ -19,9 +21,9 @@ def limit_resolution(xx, res=1e-4):
     return int(xx / res) * res
 
 
-def load_obj(path):
+def load_obj(path, mesh_dir = Path("meshes")):
     lines = None
-    with open(path) as handle:
+    with open(mesh_dir / path) as handle:
         lines = handle.readlines()
     assert lines is not None
 
