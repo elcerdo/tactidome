@@ -183,9 +183,10 @@ if __name__ == "__main__":
     generate("dome", "dome_closed.obj")
     generate("sdoor", "dome_small_door.obj")
 
+    header_line = f"{8*' '} | JHex | JPen |   LI |  LII |"
     print()
-    print(f"{8*'*'} | JHex | JPen | LI | LII")
-    # for name, (num_hexagons, num_pentagons, num_hexhex_links, num_hexpen_links) in listings:
+    print(header_line)
+    print('='*len(header_line))
     for name, counts in listings:
-        foo = (name, *counts)
-        print("{:>8} | {:4d} | {:4d}".format(*foo))
+        foo = (name, 0, 0, *counts) # FIXME
+        print("{:>8} | {:4d} | {:4d} | {:4d} | {:4d} |".format(*foo))
