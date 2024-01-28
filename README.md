@@ -17,6 +17,8 @@ There are four different parts:
 * A long link (A)
 * A short link (B)
 
+<img src="screenshots/dome_assembly.png" with="100">
+
 The star of the show being H.
 It lacks the six-way symmetry of the hexagon, but still has vertical symmetry (as denoted by the vertical mark).
 
