@@ -185,13 +185,24 @@ if __name__ == "__main__":
         listings.append((name, generate_part_listing(path, aa, bb)))
     generate("sphere", "dome_full.obj", 12, 30)
     generate("dome", "dome_closed.obj", 6, 20)
-    generate("small door", "dome_small_door.obj", 6, 20)
-    generate("large door", "dome_large_door.obj", 5, 20)
+    generate("door S", "dome_small_door.obj", 6, 20)
+    generate("door L", "dome_large_door.obj", 5, 20)
 
-    header_line = f"{10*' '} | JHex | JPen |   LI |  LII |"
+    # cad table
+    header_line = f"{6*' '} | Hex | Pen |   I |  II |"
     print()
     print(header_line)
     print('='*len(header_line))
     for name, counts in listings:
         foo = (name, *counts) # FIXME
-        print("{:>10} | {:4d} | {:4d} | {:4d} | {:4d} |".format(*foo))
+        print("{:>6} | {:3d} | {:3d} | {:3d} | {:3d} |".format(*foo))
+
+    # readme table
+    header_line = f"| {6*' '} | Hex | Pen |   I |  II |"
+    print()
+    print(header_line)
+    print("|--------|-----|-----|-----|-----|")
+
+    for name, counts in listings:
+        foo = (name, *counts) # FIXME
+        print("| {:>6} | {:3d} | {:3d} | {:3d} | {:3d} |".format(*foo))
