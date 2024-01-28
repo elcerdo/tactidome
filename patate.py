@@ -6,7 +6,7 @@ import numpy.linalg as lin
 from utils import load_obj, enum_edges, normalize, limit_resolution
 
 
-def generate_part_listing(path):
+def generate_part_listing(path, num_hexagons, num_pentagons):
     print("\n##### generate_part_listing #####")
     print(f'path "{path}"')
     vertices, facets = load_obj(path)
@@ -29,7 +29,7 @@ def generate_part_listing(path):
 
     print(f"{facets.shape[0]} facets")
 
-    lls = {}
+    length_to_edges = {}
     for facet in facets:
         for aa, bb in enum_edges(facet):
             pa = vertices[aa]
@@ -37,18 +37,18 @@ def generate_part_listing(path):
             ll = lin.norm(pb - pa)
             ll = limit_resolution(ll)
 
-            if ll not in lls:
-                lls[ll] = set()
+            if ll not in length_to_edges:
+                length_to_edges[ll] = set()
             edge = (aa, bb) if aa < bb else (bb, aa)
-            lls[ll].add(edge)
+            length_to_edges[ll].add(edge)
 
-    print(f"{sum(map(len, lls.values()))} edges")
-    for ll, ees in lls.items():
-        print(f"** {len(ees)} with length {ll:0.4f}m")
+    print(f"{sum(map(len, length_to_edges.values()))} edges")
+    for length, edges in length_to_edges.items():
+        print(f"** {len(edges)} with length {length:0.4f}m")
 
-    foo =iter(lls.items())
-    aa = next(foo)
-    bb = next(foo)
+    iter_length_edges = iter(length_to_edges.items())
+    aa = next(iter_length_edges)
+    bb = next(iter_length_edges)
     if aa[0] >= bb[0]:
         cc = aa
         aa = bb
@@ -57,7 +57,11 @@ def generate_part_listing(path):
     long_length, long_edges = bb
     assert short_length < long_length
 
+    assert num_hexagons + num_pentagons == vertices.shape[0]
+
     return (
+        num_hexagons,
+        num_pentagons,
         len(short_edges),
         len(long_edges),
     )
@@ -177,16 +181,17 @@ if __name__ == "__main__":
     analyse_pentagon()
     analyse_hexagon()
     listings = []
-    def generate(name, path):
-        listings.append((name, generate_part_listing(path)))
-    generate("sphere", "dome_full.obj")
-    generate("dome", "dome_closed.obj")
-    generate("sdoor", "dome_small_door.obj")
+    def generate(name, path, aa, bb):
+        listings.append((name, generate_part_listing(path, aa, bb)))
+    generate("sphere", "dome_full.obj", 12, 30)
+    generate("dome", "dome_closed.obj", 6, 20)
+    generate("small door", "dome_small_door.obj", 6, 20)
+    generate("large door", "dome_large_door.obj", 5, 20)
 
-    header_line = f"{8*' '} | JHex | JPen |   LI |  LII |"
+    header_line = f"{10*' '} | JHex | JPen |   LI |  LII |"
     print()
     print(header_line)
     print('='*len(header_line))
     for name, counts in listings:
-        foo = (name, 0, 0, *counts) # FIXME
-        print("{:>8} | {:4d} | {:4d} | {:4d} | {:4d} |".format(*foo))
+        foo = (name, *counts) # FIXME
+        print("{:>10} | {:4d} | {:4d} | {:4d} | {:4d} |".format(*foo))
