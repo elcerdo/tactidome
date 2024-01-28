@@ -1,9 +1,10 @@
-Icosphere sphere geodesic dome & sphere
-=======================================
+Icosphere geodesic dome & sphere
+================================
 
 This repo holds everything you need in order to laser cut a icosphere sphere.
 It is pretty easy & fun to create nice bowls, lamp shades & other designs.
 If you have a large enough laser cutter, these could also be used as tents.
+
 Use this [SVG](dome_assembly.optimized.svg) to get started!!!
 
 # Assembly
