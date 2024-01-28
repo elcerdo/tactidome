@@ -46,6 +46,22 @@ def generate_part_listing(path):
     for ll, ees in lls.items():
         print(f"** {len(ees)} with length {ll:0.4f}m")
 
+    foo =iter(lls.items())
+    aa = next(foo)
+    bb = next(foo)
+    if aa[0] >= bb[0]:
+        cc = aa
+        aa = bb
+        bb = cc
+    short_length, short_edges = aa
+    long_length, long_edges = bb
+    assert short_length < long_length
+
+    return (
+        len(short_edges),
+        len(long_edges),
+    )
+
 
 def pivot_analysis(vertices, facets, pivot):
     for facet in facets:
@@ -160,6 +176,16 @@ if __name__ == "__main__":
     np.set_printoptions(precision=4, suppress=True)
     analyse_pentagon()
     analyse_hexagon()
-    generate_part_listing("dome_small_door.obj")
-    generate_part_listing("dome_closed.obj")
-    generate_part_listing("dome_full.obj")
+    listings = []
+    def generate(name, path):
+        listings.append((name, generate_part_listing(path)))
+    generate("sphere", "dome_full.obj")
+    generate("dome", "dome_closed.obj")
+    generate("sdoor", "dome_small_door.obj")
+
+    print()
+    print(f"{8*'*'} | JHex | JPen | LI | LII")
+    # for name, (num_hexagons, num_pentagons, num_hexhex_links, num_hexpen_links) in listings:
+    for name, counts in listings:
+        foo = (name, *counts)
+        print("{:>8} | {:4d} | {:4d}".format(*foo))
