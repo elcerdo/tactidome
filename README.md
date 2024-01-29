@@ -9,15 +9,13 @@ Use this [SVG](dome.optimized.svg) to get started!!!
 
 # Assembly
 
-![dome_assembly](screenshots/dome_color_parts.png)
+![](screenshots/dome_color_parts.png)
 
 There are four different parts:
 * An almost hexagonal joint (H)
 * A perfect pentogonal joint (P)
 * A long link (A)
 * A short link (B)
-
-<img src="screenshots/dome_color_parts.png" with="100">
 
 The star of the show being H.
 It lacks the six-way symmetry of the hexagon, but still has vertical symmetry (as denoted by the vertical mark).
@@ -29,10 +27,15 @@ There is only two kinds of triangle:
 * HHH/AAA (equilateral)
 * HPP/ABB (isocele)
 
+![](screenshots/trian,gle_aaa.png)
+![](screenshots/trian,gle_abb.png)
+
 # Part listings
 
 By combining many of these basic parts, one can create more complex structures, like a sphere, a dome, a lamp shade, ...
 Here are a few examples.
+
+![](screenshots/dome_halfass.png)
 
 |            | Hex | Pen |   I |  II |
 |:-----------|----:|----:|----:|----:|
@@ -43,16 +46,16 @@ Here are a few examples.
 
 ## Sphere
 
-![sphere](screenshots/sphere.png)
+![](screenshots/sphere.png)
 
 ## Dome
 
-![sphere](screenshots/dome.png)
+![](screenshots/dome.png)
 
 ## Small door
 
-![sphere](screenshots/small_door.png)
+![](screenshots/small_door.png)
 
 ## Large door
 
-![sphere](screenshots/large_door.png)
+![](screenshots/large_door.png)
