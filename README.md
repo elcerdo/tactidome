@@ -27,8 +27,8 @@ There is only two kinds of triangle:
 * HHH/AAA (equilateral)
 * HPP/ABB (isocele)
 
-![](screenshots/trian,gle_aaa.png)
-![](screenshots/trian,gle_abb.png)
+![](screenshots/triangle_aaa.png)
+![](screenshots/triangle_abb.png)
 
 # Part listings
 
