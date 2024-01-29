@@ -5872,28 +5872,6 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="7.4410906"
-       y="226.90685"
-       id="text11006-72"><tspan
-         sodipodi:role="line"
-         id="tspan11004-4"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         x="7.4410906"
-         y="226.90685">H</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="131.33859"
-       y="229.03081"
-       id="text11006-0"><tspan
-         sodipodi:role="line"
-         id="tspan11004-629"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         x="131.33859"
-         y="229.03081">H</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="152.56889"
        y="34.416737"
        id="text11006-3"><tspan
@@ -5902,17 +5880,6 @@
          style="font-size:4.23333px;stroke-width:0.264583"
          x="152.56889"
          y="34.416737">P</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="87.469299"
-       y="116.97559"
-       id="text11006-3-0"><tspan
-         sodipodi:role="line"
-         id="tspan11004-6-3"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         x="87.469299"
-         y="116.97559">P</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -5927,17 +5894,6 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="68.826546"
-       y="225.13689"
-       id="text11006-7-9"><tspan
-         sodipodi:role="line"
-         id="tspan11004-5-0"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         x="68.826546"
-         y="225.13689">A</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="136.34862"
        y="81.088387"
        id="text11006-35"><tspan
@@ -5946,28 +5902,6 @@
          style="font-size:4.23333px;stroke-width:0.264583"
          x="136.34862"
          y="81.088387">B</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="110.18066"
-       y="161.41818"
-       id="text11006-35-4"><tspan
-         sodipodi:role="line"
-         id="tspan11004-62-0"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         x="110.18066"
-         y="161.41818">B</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="27.700327"
-       y="160.00221"
-       id="text11006-35-3"><tspan
-         sodipodi:role="line"
-         id="tspan11004-62-9"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         x="27.700327"
-         y="160.00221">B</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.175;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:1.4, 0.35, 0.175, 0.35;stroke-dashoffset:0;stroke-opacity:1"
        d="m 85.809797,29.083472 -3e-6,35.408903"
