@@ -5,7 +5,10 @@ This repo holds everything you need in order to laser cut a icosphere sphere.
 It is pretty easy & fun to create nice bowls, lamp shades & other designs.
 If you have a large enough laser cutter, these could also be used as tents.
 
-Use this [SVG](dome.optimized.svg) (3mm thick plywood) to get started!!!
+Either use this [SVG](dome.optimized.3mm.svg) for 3mm thick plywood or
+this [one](dome.optimized.5mm.svg) for 5mm.
+The parametric CAD model & assemblies can be found [here](https://cad.onshape.com/documents/7377d9bafdc80062fd4d204b/w/da809865bdc5b99c808a6af8/e/ccd00756ccc5297e948bee5e).
+
 
 # Assembly
 
@@ -30,7 +33,7 @@ There is only two kinds of triangle:
 ![](screenshots/triangle_aaa.png)
 ![](screenshots/triangle_abb.png)
 
-# Part listings
+# Assemblies
 
 By combining many of these basic parts, one can create more complex structures, like a sphere, a dome, a lamp shade, ...
 Here are a few examples.
