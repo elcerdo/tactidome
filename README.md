@@ -5,7 +5,7 @@ This repo holds everything you need in order to laser cut a icosphere sphere.
 It is pretty easy & fun to create nice bowls, lamp shades & other designs.
 If you have a large enough laser cutter, these could also be used as tents.
 
-Use this [SVG](dome.optimized.svg) to get started!!!
+Use this [SVG](dome.optimized.svg) (3mm thick plywood) to get started!!!
 
 # Assembly
 
@@ -37,12 +37,12 @@ Here are a few examples.
 
 ![](screenshots/dome_halfass.png)
 
-|            | Hex | Pen |   I |  II |
-|:-----------|----:|----:|----:|----:|
-|     Sphere |  12 |  30 |  60 |  60 |
-|       Dome |   6 |  20 |  30 |  35 |
-| Small door |   6 |  20 |  30 |  34 |
-| Large door |   5 |  20 |  25 |  34 |
+|        |  Hex |  Pen |    o |   oo |
+| :----- | ---: | ---: | ---: | ---: |
+| sphere |   30 |   12 |   60 |   60 |
+| dome   |   20 |    6 |   30 |   35 |
+| door S |   20 |    6 |   30 |   34 |
+| door L |   20 |    5 |   25 |   34 |
 
 ## Sphere
 

@@ -181,28 +181,30 @@ if __name__ == "__main__":
     analyse_pentagon()
     analyse_hexagon()
     listings = []
+
     def generate(name, path, aa, bb):
         listings.append((name, generate_part_listing(path, aa, bb)))
-    generate("sphere", "dome_full.obj", 12, 30)
-    generate("dome", "dome_closed.obj", 6, 20)
-    generate("door S", "dome_small_door.obj", 6, 20)
-    generate("door L", "dome_large_door.obj", 5, 20)
+
+    generate("sphere", "dome_full.obj", 30, 12)
+    generate("dome", "dome_closed.obj", 20, 6)
+    generate("door S", "dome_small_door.obj", 20, 6)
+    generate("door L", "dome_large_door.obj", 20, 5)
 
     # cad table
-    header_line = f"{6*' '} | Hex | Pen |   I |  II |"
+    header_line = f"{6*' '} | Hex | Pen |   o |  oo |"
     print()
     print(header_line)
-    print('='*len(header_line))
+    print("=" * len(header_line))
     for name, counts in listings:
-        foo = (name, *counts) # FIXME
+        foo = (name, *counts)
         print("{:>6} | {:3d} | {:3d} | {:3d} | {:3d} |".format(*foo))
 
     # readme table
-    header_line = f"| {6*' '} | Hex | Pen |   I |  II |"
+    header_line = f"| {6*' '} | Hex | Pen |   o |  oo |"
     print()
     print(header_line)
-    print("|--------|-----|-----|-----|-----|")
+    print("|:-------|----:|----:|----:|----:|")
 
     for name, counts in listings:
-        foo = (name, *counts) # FIXME
+        foo = (name, *counts)  # FIXME
         print("| {:>6} | {:3d} | {:3d} | {:3d} | {:3d} |".format(*foo))
