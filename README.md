@@ -51,6 +51,7 @@ Here are a few examples.
 ## Dome
 
 ![](screenshots/dome.png)
+![](screenshots/dome_assembly.png)
 
 ## Small door
 
