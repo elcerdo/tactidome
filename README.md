@@ -40,12 +40,12 @@ Here are a few examples.
 
 ![](screenshots/dome_halfass.png)
 
-|        |  Hex |  Pen |    o |   oo |
+|        |  Hex |  Pen |    A |    B |
 | :----- | ---: | ---: | ---: | ---: |
 | sphere |   30 |   12 |   60 |   60 |
-| dome   |   20 |    6 |   30 |   35 |
-| door S |   20 |    6 |   30 |   34 |
-| door L |   20 |    5 |   25 |   34 |
+| dome   |   20 |    6 |   35 |   30 |
+| door S |   20 |    6 |   34 |   30 |
+| door L |   20 |    5 |   34 |   25 |
 
 ## Sphere
 

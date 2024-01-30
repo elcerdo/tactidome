@@ -62,8 +62,8 @@ def generate_part_listing(path, num_hexagons, num_pentagons):
     return (
         num_hexagons,
         num_pentagons,
-        len(short_edges),
         len(long_edges),
+        len(short_edges),
     )
 
 
@@ -200,11 +200,11 @@ if __name__ == "__main__":
         print("{:>6} | {:3d} | {:3d} | {:3d} | {:3d} |".format(*foo))
 
     # readme table
-    header_line = f"| {6*' '} | Hex | Pen |   o |  oo |"
+    header_line = f"| {6*' '} | Hex | Pen | A   | B   |"
     print()
     print(header_line)
     print("|:-------|----:|----:|----:|----:|")
 
     for name, counts in listings:
         foo = (name, *counts)  # FIXME
-        print("| {:>6} | {:3d} | {:3d} | {:3d} | {:3d} |".format(*foo))
+        print("| {:<6} | {:3d} | {:3d} | {:3d} | {:3d} |".format(*foo))
